@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Http\Requests\IndexContactRequest;
 
 class AdminController extends Controller
 {
-    public function index(Request $request)
+    public function index(IndexContactRequest $request)
     {
         $keyword = $request->input('keyword');
 
