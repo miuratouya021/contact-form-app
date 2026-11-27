@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +22,6 @@ Route::get('/thanks', [ContactController::class, 'thanks']);
 Route::post('/contacts', [ContactController::class, 'store']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin/contacts/{contact}', [AdminController::class, 'show']);
+    Route::delete('/admin/contacts/{contact}', [AdminController::class, 'destroy'])->name('contacts.destroy');
 });
