@@ -23,6 +23,7 @@ Route::get('/thanks', [ContactController::class, 'thanks']);
 Route::post('/contacts', [ContactController::class, 'store']);
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/contacts/export', [ContactController::class, 'export'])->name('contacts.export');
     Route::get('/admin/contacts/{contact}', [AdminController::class, 'show']);
     Route::delete('/admin/contacts/{contact}', [AdminController::class, 'destroy'])->name('contacts.destroy');
     Route::get('/admin/tags/{tag}/edit', [TagController::class, 'edit']);
