@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
     Route::get('/admin/contacts/{contact}', [AdminController::class, 'show']);
     Route::delete('/admin/contacts/{contact}', [AdminController::class, 'destroy'])->name('contacts.destroy');
+    Route::get('/admin/tags/{tag}/edit', [TagController::class, 'edit']);
+    Route::post('/admin/tags', [TagController::class, 'store']);
+    Route::put('/admin/tags/{tag}', [TagController::class, 'update']);
+    Route::delete('/admin/tags/{tag}', [TagController::class, 'destroy']);
 });
