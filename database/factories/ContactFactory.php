@@ -28,7 +28,7 @@ class ContactFactory extends Factory
             'last_name' => fake()->lastName(),
             'gender' => fake()->randomElement([1, 2, 3]),
             'email' => fake()->email(),
-            'tel' => fake()->phoneNumber(),
+            'tel' => fake()->numerify('###########'),
             'address' => fake()->address(),
             'building' => fake()->sentence(),
             'detail' => fake()->sentence(),
